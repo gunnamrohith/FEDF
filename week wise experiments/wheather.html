@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Finder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+            padding: 50px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Weather Finder</h1>
+    <input type="text" id="city" placeholder="Enter city name">
+    <button id="getWeather">Get Weather</button>
+    <div id="result"></div>
+
+    <script>
+        $("#getWeather").click(function () {
+            let city = $("#city").val();
+
+            const settings = {
+                async: true,
+                crossDomain: true,
+               //url: 'https://open-weather13.p.rapidapi.com/city?city=Hyderabad&lang=EN',
+                  
+               url: `https://open-weather13.p.rapidapi.com/city?city=${city}&lang=EN`,
+
+                  method: 'GET',
+        headers: {
+                     'x-rapidapi-key': 'a97372ae7fmsh56004bcdcaff840p17d4f3jsne09882e2f6f5',
+                  'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+                }
+            };
+
+            $.ajax(settings)
+                .done(function (response) {
+                    console.log(" Success:", response);
+                    $("#result").html(`
+            🌍 City: ${response.name}<br>
+            🌡️ Temp: ${response.main.temp} °C<br>
+            ⛅   Weather: ${response.weather[0].description}
+          `);
+                })
+                .fail(function (err) {
+                    console.error(" Error:", err);
+                    $("#result").html("Error fetching weather data ");
+                });
+        });
+    </script>
+
+</body>
+
+</html>
