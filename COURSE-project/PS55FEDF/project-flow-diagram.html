@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Flow Diagram</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #f4f8fc, #eaf2fb);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+      .card {
+        width: min(1200px, 96vw);
+        background: #ffffff;
+        border: 1px solid #d4e3f3;
+        border-radius: 16px;
+        box-shadow: 0 12px 28px rgba(20, 60, 95, 0.12);
+        padding: 16px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        color: #153953;
+        text-align: center;
+      }
+      p {
+        margin: 0 0 10px;
+        text-align: center;
+        color: #48667f;
+        font-size: 14px;
+      }
+      .mermaid {
+        transform: scale(0.92);
+        transform-origin: top center;
+      }
+      @media (max-width: 900px) {
+        .mermaid {
+          transform: scale(0.74);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Medical Report Analyzer - Project Flow</h1>
+      <p>Compact diagram designed to fit one PPT slide.</p>
+      <div class="mermaid">
+flowchart TD
+    A[User Login] --> B[Dashboard]
+    B --> C[Upload Report]
+    C --> D[Extract and Analyze]
+    D --> E[Score and Insights]
+    B --> F[Order Lab Test]
+    F --> G[Patient and Address]
+    G --> H[Track Order]
+    H --> I[Attach Result]
+    I --> J[Doctor Review]
+    J --> K[Final History]
+
+    style A fill:#0b3d5c,stroke:#06273b,color:#ffffff,stroke-width:1.3px
+    style B fill:#dff3ff,stroke:#4a88b8,color:#07314f,stroke-width:1.1px
+    style C fill:#dff3ff,stroke:#4a88b8,color:#07314f,stroke-width:1.1px
+    style D fill:#efe2ff,stroke:#8d62c7,color:#35165e,stroke-width:1.1px
+    style E fill:#efe2ff,stroke:#8d62c7,color:#35165e,stroke-width:1.1px
+    style F fill:#e8ffe8,stroke:#5f9f5f,color:#114011,stroke-width:1.1px
+    style G fill:#e8ffe8,stroke:#5f9f5f,color:#114011,stroke-width:1.1px
+    style H fill:#e8ffe8,stroke:#5f9f5f,color:#114011,stroke-width:1.1px
+    style I fill:#e8ffe8,stroke:#5f9f5f,color:#114011,stroke-width:1.1px
+    style J fill:#e8ffe8,stroke:#5f9f5f,color:#114011,stroke-width:1.1px
+    style K fill:#0f6a55,stroke:#084538,color:#ffffff,stroke-width:1.3px
+      </div>
+    </div>
+
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true, securityLevel: "loose" });
+    </script>
+  </body>
+</html>
